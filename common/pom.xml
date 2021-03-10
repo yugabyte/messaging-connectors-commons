@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>messaging-connectors-commons-parent</artifactId>
-    <groupId>com.datastax.oss</groupId>
+    <groupId>com.yugabyte</groupId>
     <version>1.0.9</version>
   </parent>
   <artifactId>messaging-connectors-commons-core</artifactId>
@@ -28,19 +28,19 @@
   <description>Common Sink Runtime to load records from Messaging middlewares to Apache Cassandra (R) or DataStax Enterprise (DSE).</description>
   <dependencies>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>dsbulk-codecs-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>dsbulk-codecs-text</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>dsbulk-codecs-jdk</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>dsbulk-sampler</artifactId>
     </dependency>
     <dependency>
@@ -48,7 +48,7 @@
       <artifactId>netty-tcnative-boringssl-static</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>java-driver-core</artifactId>
       <exclusions>
         <exclusion>
@@ -130,12 +130,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>java-driver-test-infra</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.datastax.oss</groupId>
+      <groupId>com.yugabyte</groupId>
       <artifactId>dsbulk-tests</artifactId>
       <scope>test</scope>
     </dependency>

@@ -51,6 +51,8 @@ public class TableConfig extends AbstractConfig {
 
   static final String DELETES_ENABLED_OPT = "deletesEnabled";
   private static final String NULL_TO_UNSET_OPT = "nullToUnset";
+  private static final String WRITE_TIME_OPT = "useEventTimeForWrite";
+
   private static final Pattern DELIM_PAT = Pattern.compile(", *");
 
   private final String topicName;
@@ -63,6 +65,7 @@ public class TableConfig extends AbstractConfig {
   private final TimeUnit ttlTimeUnit;
   private final TimeUnit timestampTimeUnit;
   private final boolean nullToUnset;
+  private final boolean useEventTimeForWrite;
   private final boolean deletesEnabled;
   private final String query;
 
@@ -104,6 +107,8 @@ public class TableConfig extends AbstractConfig {
             getString(getTableSettingPath(topicName, keyspace, table, TIMESTAMP_TIME_UNIT_OPT)));
 
     nullToUnset = getBoolean(getTableSettingPath(topicName, keyspace, table, NULL_TO_UNSET_OPT));
+    useEventTimeForWrite =
+        getBoolean(getTableSettingPath(topicName, keyspace, table, WRITE_TIME_OPT));
     deletesEnabled =
         getBoolean(getTableSettingPath(topicName, keyspace, table, DELETES_ENABLED_OPT));
     query = getString(getTableSettingPath(topicName, keyspace, table, QUERY_OPT));
@@ -218,6 +223,10 @@ public class TableConfig extends AbstractConfig {
     return nullToUnset;
   }
 
+  public boolean useEventTimeForWrite() {
+    return useEventTimeForWrite;
+  }
+
   public boolean isDeletesEnabled() {
     return deletesEnabled;
   }
@@ -295,6 +304,12 @@ public class TableConfig extends AbstractConfig {
             true,
             ConfigDef.Importance.HIGH,
             "Whether to delete rows where only the primary key is non-null")
+        .define(
+            getTableSettingPath(topicName, keyspace, table, WRITE_TIME_OPT),
+            ConfigDef.Type.BOOLEAN,
+            true,
+            ConfigDef.Importance.HIGH,
+            "Whether to use the message queue event time for write time to yugabytedb.")
         .define(
             getTableSettingPath(topicName, keyspace, table, CL_OPT),
             ConfigDef.Type.STRING,

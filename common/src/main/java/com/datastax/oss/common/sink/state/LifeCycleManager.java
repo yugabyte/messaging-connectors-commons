@@ -215,14 +215,16 @@ public class LifeCycleManager {
       statementBuilder.append(colCql);
       valuesBuilder.append(':').append(colCql);
     }
-    statementBuilder
-        .append(") VALUES (")
-        .append(valuesBuilder.toString())
-        .append(") USING TIMESTAMP :")
-        .append(SinkUtil.TIMESTAMP_VARNAME);
-
+    statementBuilder.append(") VALUES (").append(valuesBuilder.toString()).append(")");
+    appendWriteTime(config, statementBuilder);
     appendTtl(config, statementBuilder);
     return statementBuilder.toString();
+  }
+
+  private static void appendWriteTime(TableConfig config, StringBuilder statementBuilder) {
+    if (config.useEventTimeForWrite()) {
+      statementBuilder.append(" USING TIMESTAMP :").append(SinkUtil.TIMESTAMP_VARNAME);
+    }
   }
 
   private static void appendTtl(TableConfig config, StringBuilder statementBuilder) {

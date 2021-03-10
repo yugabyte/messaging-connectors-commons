@@ -18,7 +18,7 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.datastax.oss</groupId>
+  <groupId>com.yugabyte</groupId>
   <artifactId>messaging-connectors-commons-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0.9</version>
@@ -40,7 +40,7 @@
     <java.release.version>8</java.release.version>
     <kafka.connect.version>2.4.0</kafka.connect.version>
     <caffeine.version>2.6.2</caffeine.version>
-    <oss.driver.version>4.6.0</oss.driver.version>
+    <oss.driver.version>4.6.0-yb-6</oss.driver.version>
     <dsbulk.version>1.6.0</dsbulk.version>
     <reactive-streams.version>1.0.3</reactive-streams.version>
     <guava.version>25.1-jre</guava.version>
@@ -70,22 +70,22 @@
         <version>${kafka.connect.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>dsbulk-codecs-api</artifactId>
         <version>${dsbulk.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>dsbulk-codecs-text</artifactId>
         <version>${dsbulk.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>dsbulk-codecs-jdk</artifactId>
         <version>${dsbulk.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>dsbulk-sampler</artifactId>
         <version>${dsbulk.version}</version>
       </dependency>
@@ -150,7 +150,7 @@
         <version>${logback.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>java-driver-core</artifactId>
         <version>${oss.driver.version}</version>
       </dependency>
@@ -185,12 +185,12 @@
         <version>${mockito.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>java-driver-test-infra</artifactId>
         <version>${oss.driver.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.datastax.oss</groupId>
+        <groupId>com.yugabyte</groupId>
         <artifactId>dsbulk-tests</artifactId>
         <version>${dsbulk.version}</version>
       </dependency>
